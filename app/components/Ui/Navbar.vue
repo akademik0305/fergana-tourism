@@ -91,7 +91,7 @@ onUnmounted(() => {
 				<!-- Desktop Menu -->
 				<div class="hidden lg:flex items-center gap-6 xl:gap-8">
 					<NuxtLink
-						to="/players"
+						to="/"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
 						For players
@@ -243,7 +243,7 @@ onUnmounted(() => {
 					<div class="flex-1 flex flex-col justify-between p-6">
 						<div class="space-y-1">
 							<NuxtLink
-								to="/players"
+								to="/"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>

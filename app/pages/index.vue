@@ -1,3 +1,75 @@
+<script setup lang="ts">
+//===============================-< imports >-===============================
+//> variables
+const router = useRouter()
+//> functions
+
+// clubs
+interface Club {
+	id: number
+	name: string
+	image: string
+	distance: number
+	city: string
+	price: number
+	rating: number
+	reviews: number
+	availableTimes: string[]
+}
+
+const clubs = ref<Club[]>([
+	{
+		id: 1,
+		name: "Toshkent tennis club",
+		image: "./club-1.png",
+		distance: 1000,
+		city: "Tashkent city",
+		price: 200000,
+		rating: 4.2,
+		reviews: 124,
+		availableTimes: ["5:30PM", "7:30PM", "5:30PM", "5:30PM"],
+	},
+	{
+		id: 2,
+		name: "Toshkent tennis club",
+		image: "./club-2.png",
+		distance: 1000,
+		city: "Tashkent city",
+		price: 200000,
+		rating: 4.2,
+		reviews: 124,
+		availableTimes: ["5:30PM", "7:30PM", "5:30PM", "5:30PM"],
+	},
+	{
+		id: 3,
+		name: "Toshkent tennis club",
+		image: "./club-3.png",
+		distance: 1000,
+		city: "Tashkent city",
+		price: 200000,
+		rating: 4.2,
+		reviews: 124,
+		availableTimes: ["5:30PM", "7:30PM", "5:30PM", "5:30PM"],
+	},
+])
+
+const handleBooking = (clubId: number) => {
+	console.log("Booking club:", clubId)
+}
+//===============================-< go to search page >-===============================
+//> variables
+//> functions
+function gotoSearch(event: KeyboardEvent) {
+	const input = event.target as HTMLInputElement
+	router.push({
+		name: "search",
+		query: {
+			search: input.value,
+		},
+	})
+}
+</script>
+
 <template>
 	<div class="min-h-screen">
 		<!-- Hero -->
@@ -36,6 +108,7 @@
 								type="text"
 								placeholder="Address,Club,Place"
 								class="flex-1 outline-none text-gray bg-transparent text-sm md:text-base"
+								@keydown.enter="gotoSearch($event)"
 							/>
 						</div>
 
@@ -630,57 +703,3 @@
 		<!-- Testimonal -->
 	</div>
 </template>
-
-<script setup lang="ts">
-interface Club {
-	id: number
-	name: string
-	image: string
-	distance: number
-	city: string
-	price: number
-	rating: number
-	reviews: number
-	availableTimes: string[]
-}
-
-const clubs = ref<Club[]>([
-	{
-		id: 1,
-		name: "Toshkent tennis club",
-		image: "./club-1.png",
-		distance: 1000,
-		city: "Tashkent city",
-		price: 200000,
-		rating: 4.2,
-		reviews: 124,
-		availableTimes: ["5:30PM", "7:30PM", "5:30PM", "5:30PM"],
-	},
-	{
-		id: 2,
-		name: "Toshkent tennis club",
-		image: "./club-2.png",
-		distance: 1000,
-		city: "Tashkent city",
-		price: 200000,
-		rating: 4.2,
-		reviews: 124,
-		availableTimes: ["5:30PM", "7:30PM", "5:30PM", "5:30PM"],
-	},
-	{
-		id: 3,
-		name: "Toshkent tennis club",
-		image: "./club-3.png",
-		distance: 1000,
-		city: "Tashkent city",
-		price: 200000,
-		rating: 4.2,
-		reviews: 124,
-		availableTimes: ["5:30PM", "7:30PM", "5:30PM", "5:30PM"],
-	},
-])
-
-const handleBooking = (clubId: number) => {
-	console.log("Booking club:", clubId)
-}
-</script>
