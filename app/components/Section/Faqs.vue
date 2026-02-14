@@ -78,8 +78,8 @@ const toggleFAQ = (index: number) => {
 
 					<!-- Answer Content -->
 					<Transition
-						enter-active-class="transition-all duration-300 ease-out"
-						leave-active-class="transition-all duration-200 ease-in"
+						enter-active-class="transition-all duration-500 ease-out"
+						leave-active-class="transition-all duration-400 ease-in"
 						enter-from-class="opacity-0 -translate-y-2"
 						enter-to-class="opacity-100 translate-y-0"
 						leave-from-class="opacity-100 translate-y-0"

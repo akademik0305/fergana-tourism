@@ -98,16 +98,17 @@ function gotoSearch(event: KeyboardEvent) {
 
 						<!-- Search Bar -->
 						<div
-							class="bg-white rounded-full p-2 flex items-center gap-3 shadow-lg max-w-full md:max-w-md"
+							class="bg-white rounded-full p-2 flex items-center gap-3 shadow-lg max-w-full md:max-w-160"
 						>
 							<UIcon
 								name="ic:round-search"
 								class="text-gray text-xl md:text-2xl ml-2"
 							/>
 							<input
+								id="search"
 								type="text"
-								placeholder="Address,Club,Place"
-								class="flex-1 outline-none text-gray bg-transparent text-sm md:text-base"
+								placeholder="Address, Club, Place"
+								class="flex-1 outline-none text-gray bg-transparent text-sm sm:text-base md:text-lg py-1 md:py-1.5 pr-2"
 								@keydown.enter="gotoSearch($event)"
 							/>
 						</div>

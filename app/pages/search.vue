@@ -118,7 +118,7 @@ onMounted(() => {
 							id="search"
 							type="text"
 							placeholder="Address, Club, Place"
-							class="flex-1 outline-none text-gray bg-transparent text-sm sm:text-base md:text-lg py-1 md:py-2 pr-2"
+							class="flex-1 outline-none text-gray bg-transparent text-sm sm:text-base md:text-lg py-1 md:py-1.5 pr-2"
               v-model="searchValue"
 						/>
 					</div>

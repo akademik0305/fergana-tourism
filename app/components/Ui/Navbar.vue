@@ -103,7 +103,7 @@ onUnmounted(() => {
 						For clubs
 					</NuxtLink>
 					<NuxtLink
-						to="/faqs"
+						to="/manager"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
 						FAQ / Testimonial
