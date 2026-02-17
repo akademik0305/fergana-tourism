@@ -10,7 +10,8 @@ export default defineNuxtConfig({
 	},
 
 	i18n: {
-		defaultLocale: "en",
+		defaultLocale: "uz",
+		detectBrowserLanguage: false,
 		locales: [
 			{ code: "en", name: "English", file: "en.json" },
 			{ code: "uz", name: "Uzbek", file: "uz.json" },

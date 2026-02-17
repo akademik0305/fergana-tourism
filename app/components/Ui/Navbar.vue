@@ -92,19 +92,19 @@ onUnmounted(() => {
 						:to="localePath('/')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
-						{{ $t('nav.for_players') }}
+						{{ $t("nav.for_players") }}
 					</NuxtLink>
 					<NuxtLink
 						:to="localePath('/clubs')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
-						{{ $t('nav.for_clubs') }}
+						{{ $t("nav.for_clubs") }}
 					</NuxtLink>
 					<NuxtLink
 						:to="localePath('/manager')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
-						{{ $t('nav.faq') }}
+						{{ $t("nav.faq") }}
 					</NuxtLink>
 
 					<!-- Language Selector -->
@@ -153,7 +153,7 @@ onUnmounted(() => {
 					<button
 						class="bg-sc text-main font-semibold px-5 xl:px-6 py-2 rounded-full hover:bg-white transition-all duration-300 text-sm xl:text-base hover:shadow-lg active:scale-95"
 					>
-						{{ $t('nav.booking') }}
+						{{ $t("nav.booking") }}
 					</button>
 				</div>
 
@@ -245,21 +245,21 @@ onUnmounted(() => {
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
-								{{ $t('nav.for_players') }}
+								{{ $t("nav.for_players") }}
 							</NuxtLink>
 							<NuxtLink
 								:to="localePath('/clubs')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
-								{{ $t('nav.for_clubs') }}
+								{{ $t("nav.for_clubs") }}
 							</NuxtLink>
 							<NuxtLink
 								:to="localePath('/faqs')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
-								{{ $t('nav.faq') }}
+								{{ $t("nav.faq") }}
 							</NuxtLink>
 
 							<!-- Mobile Language Selector -->
@@ -267,18 +267,18 @@ onUnmounted(() => {
 								<p
 									class="text-white/60 text-xs uppercase tracking-wide px-4 mb-2"
 								>
-									{{ $t('nav.language') }}
+									{{ $t("nav.language") }}
 								</p>
 								<div class="grid grid-cols-3 gap-2">
 									<button
 										v-for="lang in locales"
 										:key="lang.code"
 										@click="selectLanguage(lang.code)"
-										class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
+										class="px-4 py-2 rounded-lg text-sm font-medium transition-all uppercase"
 										:class="
 											locale === lang.code
 												? 'bg-sc text-main'
-												: 'bg-white/5 text-white hover:bg-white/10 uppercase'
+												: 'bg-white/5 text-white hover:bg-white/10 '
 										"
 									>
 										{{ lang.code }}
@@ -293,11 +293,11 @@ onUnmounted(() => {
 								@click="closeMobileMenu"
 								class="w-full bg-sc text-main font-semibold px-6 py-3 rounded-xl hover:bg-white transition-all duration-300 text-base shadow-lg hover:shadow-xl active:scale-95"
 							>
-								{{ $t('nav.booking') }}
+								{{ $t("nav.booking") }}
 							</button>
 
 							<p class="text-white/40 text-xs text-center">
-								{{ $t('nav.copyright') }}
+								{{ $t("nav.copyright") }}
 							</p>
 						</div>
 					</div>
