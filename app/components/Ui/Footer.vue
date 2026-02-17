@@ -7,7 +7,7 @@
 				class="flex flex-col lg:flex-row items-center gap-6 md:gap-8 justify-between"
 			>
 				<!-- Logo -->
-				<NuxtLink to="/" class="flex items-center gap-2 shrink-0">
+				<NuxtLink :to="localePath('/')" class="flex items-center gap-2 shrink-0">
 					<img
 						src="~/assets/images/logo/logo-footer.svg"
 						alt="Playstat logo"
@@ -23,25 +23,25 @@
 						to="#download"
 						class="text-black hover:text-main transition-colors font-medium leading-normal text-sm md:text-base whitespace-nowrap hover:underline underline-offset-4 decoration-2"
 					>
-						Download our app
+						{{ $t('footer.download') }}
 					</NuxtLink>
 					<NuxtLink
 						to="#about"
 						class="text-black hover:text-main transition-colors font-medium leading-normal text-sm md:text-base whitespace-nowrap hover:underline underline-offset-4 decoration-2"
 					>
-						About
+						{{ $t('footer.about') }}
 					</NuxtLink>
 					<NuxtLink
 						to="#legal"
 						class="text-black hover:text-main transition-colors font-medium leading-normal text-sm md:text-base whitespace-nowrap hover:underline underline-offset-4 decoration-2"
 					>
-						Legal conditions
+						{{ $t('footer.legal') }}
 					</NuxtLink>
 					<NuxtLink
 						to="#privacy"
 						class="text-black hover:text-main transition-colors font-medium leading-normal text-sm md:text-base whitespace-nowrap hover:underline underline-offset-4 decoration-2"
 					>
-						Privacy policy
+						{{ $t('footer.privacy') }}
 					</NuxtLink>
 				</nav>
 
@@ -55,7 +55,7 @@
 					>
 						<img
 							src="~/assets/images/png/play.png"
-							alt="Get it on Google Play"
+							:alt="$t('footer.google_play')"
 							class="w-full h-auto object-contain rounded-lg shadow-sm hover:shadow-md transition-shadow"
 						/>
 					</a>
@@ -68,7 +68,7 @@
 					>
 						<img
 							src="~/assets/images/png/app.png"
-							alt="Download on App Store"
+							:alt="$t('footer.app_store')"
 							class="w-full h-auto object-contain rounded-lg shadow-sm hover:shadow-md transition-shadow"
 						/>
 					</a>
@@ -79,10 +79,12 @@
 			<p
 				class="mt-8 md:mt-12 lg:mt-18 text-xs md:text-sm text-text text-center"
 			>
-				© 2025 Playstat. All rights reserved.
+				{{ $t('footer.copyright') }}
 			</p>
 		</div>
 	</footer>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const localePath = useLocalePath()
+</script>

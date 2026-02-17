@@ -1,36 +1,32 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
+const { t } = useI18n()
 
 interface FAQ {
 	question: string
 	answer: string
 }
 
-const faqs = ref<FAQ[]>([
+const faqs = computed<FAQ[]>(() => [
 	{
-		question: "What is Playstat?",
-		answer:
-			"Playstat is a smart platform for padel, tennis, and racket sport players in Uzbekistan to easily find clubs, book courts, and start playing with confidence. Whether you're a beginner or an experienced player, Playstat helps you discover nearby clubs, connect with other players, and enjoy the game at your own level.",
+		question: t('faq.q1.question'),
+		answer: t('faq.q1.answer'),
 	},
 	{
-		question: "What is a Padel courts?",
-		answer:
-			"A padel court is an enclosed playing area designed specifically for padel tennis. It typically measures 20m x 10m and features glass walls and metal mesh fencing. The court combines elements of tennis and squash, with walls being an integral part of the game.",
+		question: t('faq.q2.question'),
+		answer: t('faq.q2.answer'),
 	},
 	{
-		question: "How do I find near courts?",
-		answer:
-			"Finding nearby courts is easy with Playstat! Simply use our search feature with your location, and we'll show you all available courts in your area. You can filter by distance, price, facilities, and available time slots to find the perfect match for your needs.",
+		question: t('faq.q3.question'),
+		answer: t('faq.q3.answer'),
 	},
 	{
-		question: "Can beginner play courts?",
-		answer:
-			"Absolutely! Playstat welcomes players of all skill levels. Many courts offer beginner-friendly sessions and coaching. When booking, you can specify your skill level, and we'll help match you with appropriate courts and playing partners.",
+		question: t('faq.q4.question'),
+		answer: t('faq.q4.answer'),
 	},
 	{
-		question: "Can I bring my own equipment to play on a padel court??",
-		answer:
-			"Yes, you can bring your own padel racket and balls. However, most courts also offer equipment rental if you don't have your own. We recommend checking with the specific venue about their equipment policies and rental options when booking.",
+		question: t('faq.q5.question'),
+		answer: t('faq.q5.answer'),
 	},
 ])
 
@@ -48,7 +44,7 @@ const toggleFAQ = (index: number) => {
 			<!-- Section Header -->
 			<div class="mb-8 md:mb-12">
 				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-title">
-					FAQs
+					{{ $t('faq.title') }}
 				</h2>
 			</div>
 

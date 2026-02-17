@@ -1,22 +1,24 @@
 <script lang="ts" setup>
+const { t } = useI18n();
+
 // cards
-const cards = [
+const cards = computed(() => [
 	{
 		number: 1,
-		title: "Easy racket sports court reservations",
-		text: "We simplify the reservation process for you. Find your ideal club and book in just a few clicks.",
+		title: t('search.cards.card1.title'),
+		text: t('search.cards.card1.text'),
 	},
 	{
 		number: 2,
-		title: "Available clubs",
-		text: "From Spain to the United States, explore our available clubs in the many cities we're present.",
+		title: t('search.cards.card2.title'),
+		text: t('search.cards.card2.text'),
 	},
 	{
 		number: 3,
-		title: "Playstat guaranteed quality",
-		text: "You're supported by top-quality clubs that meet our standards, so you can focus on playing your best every time.",
+		title: t('search.cards.card3.title'),
+		text: t('search.cards.card3.text'),
 	},
-]
+])
 
 interface Club {
 	id: number
@@ -78,30 +80,24 @@ const handleBooking = (clubId: number) => {
 			id="header"
 			class="bg-main relative overflow-hidden pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 sm:pb-20 md:pb-28 lg:pb-40"
 		>
-			<div
-				class="absolute top-0 left-0 w-full h-full opacity-30 lg:opacity-100"
-			>
+			<div class="absolute top-0 left-0 w-full h-full opacity-30 lg:opacity-100">
 				<LazyIconsSearchHeaderLine />
 			</div>
 			<div class="container relative px-4 sm:px-6">
 				<!-- Content -->
-				<div
-					class="text-white pt-12 sm:pt-16 md:pt-20 lg:pt-23 text-center max-w-5xl mx-auto"
-				>
+				<div class="text-white pt-12 sm:pt-16 md:pt-20 lg:pt-23 text-center max-w-5xl mx-auto">
 					<h1
 						class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[54px] font-bold leading-tight capitalize px-4"
 					>
-						Find a <span class="text-sc">padel club</span> and<br
-							class="hidden sm:block"
-						/>
-						start playing
+						{{ $t('search.hero.title_start') }} <span class="text-sc">{{ $t('search.hero.title_highlight') }}</span> {{ $t('search.hero.title_end') }}<br class="hidden sm:block" />
+						{{ $t('search.hero.title_line2') }}
 					</h1>
 
 					<p
 						class="mt-6 sm:mt-8 md:mt-10 text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-white/90 px-4"
 					>
-						Find Matches And Courts Worldwide,<br class="hidden sm:block" />
-						Connect Anytime, Anywhere
+						{{ $t('search.hero.subtitle') }}<br class="hidden sm:block" />
+						{{ $t('search.hero.subtitle2') }}
 					</p>
 
 					<!-- Search Bar -->
@@ -114,7 +110,7 @@ const handleBooking = (clubId: number) => {
 						/>
 						<input
 							type="text"
-							placeholder="Address, Club, Place"
+							:placeholder="$t('search.hero.search_placeholder')"
 							class="flex-1 outline-none text-gray bg-transparent text-sm sm:text-base md:text-lg py-1 md:py-2 pr-2"
 						/>
 					</div>
@@ -131,22 +127,16 @@ const handleBooking = (clubId: number) => {
 					<h2
 						class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-title mb-2 sm:mb-3 md:mb-4 font-semibold px-4"
 					>
-						How does Playstat work?
+						{{ $t('search.features.title') }}
 					</h2>
-					<p
-						class="text-text text-sm sm:text-base md:text-lg lg:text-xl px-4 max-w-3xl mx-auto"
-					>
-						Everything you need to find courts, book games,<br
-							class="hidden sm:block"
-						/>
-						and start playing — all in one place.
+					<p class="text-text text-sm sm:text-base md:text-lg lg:text-xl px-4 max-w-3xl mx-auto">
+						{{ $t('search.features.subtitle') }}<br class="hidden sm:block" />
+						{{ $t('search.features.subtitle2') }}
 					</p>
 				</div>
 
 				<!-- Features Grid -->
-				<div
-					class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-6xl mx-auto"
-				>
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-6xl mx-auto">
 					<!-- card -->
 					<div
 						v-for="item in cards"
@@ -158,14 +148,10 @@ const handleBooking = (clubId: number) => {
 						>
 							{{ item.number }}
 						</div>
-						<h3
-							class="font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray leading-tight"
-						>
+						<h3 class="font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray leading-tight">
 							{{ item.title }}
 						</h3>
-						<p
-							class="text-xs sm:text-sm md:text-base text-[#717171] leading-relaxed"
-						>
+						<p class="text-xs sm:text-sm md:text-base text-[#717171] leading-relaxed">
 							{{ item.text }}
 						</p>
 					</div>
@@ -179,18 +165,16 @@ const handleBooking = (clubId: number) => {
 			<div class="container px-4 sm:px-6">
 				<!-- Section Header -->
 				<div class="flex items-center justify-between mb-5 sm:mb-6 md:mb-8">
-					<h2
-						class="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-title"
-					>
-						Top searched clubs
+					<h2 class="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-title">
+						{{ $t('search.top_clubs.title') }}
 					</h2>
 					<button
 						class="text-main hover:text-blue-700 transition-colors flex items-center gap-1 md:gap-2 group"
-						aria-label="View all top clubs"
+						:aria-label="$t('search.top_clubs.view_all')"
 					>
-						<span class="hidden sm:inline text-sm md:text-base font-medium"
-							>View all</span
-						>
+						<span class="hidden sm:inline text-sm md:text-base font-medium">
+							{{ $t('search.top_clubs.view_all') }}
+						</span>
 						<UIcon
 							name="dashicons:arrow-right-alt2"
 							class="text-xl sm:text-2xl md:text-3xl group-hover:translate-x-1 transition-transform"
@@ -199,9 +183,7 @@ const handleBooking = (clubId: number) => {
 				</div>
 
 				<!-- Clubs Grid -->
-				<div
-					class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
-				>
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
 					<ClubCard
 						v-for="club in clubs"
 						:key="club.id"
@@ -212,10 +194,8 @@ const handleBooking = (clubId: number) => {
 
 				<!-- View More Button - Mobile Only -->
 				<div class="sm:hidden mt-6 text-center">
-					<button
-						class="w-full sm:w-auto bg-main hover:bg-main/90 text-white font-medium px-8 py-3 rounded-xl transition-colors text-base"
-					>
-						View All Clubs
+					<button class="w-full sm:w-auto bg-main hover:bg-main/90 text-white font-medium px-8 py-3 rounded-xl transition-colors text-base">
+						{{ $t('search.top_clubs.view_all') }}
 					</button>
 				</div>
 			</div>
@@ -227,18 +207,16 @@ const handleBooking = (clubId: number) => {
 			<div class="container px-4 sm:px-6">
 				<!-- Section Header -->
 				<div class="flex items-center justify-between mb-5 sm:mb-6 md:mb-8">
-					<h2
-						class="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-title"
-					>
-						Near clubs
+					<h2 class="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-title">
+						{{ $t('search.near_clubs.title') }}
 					</h2>
 					<button
 						class="text-main hover:text-blue-700 transition-colors flex items-center gap-1 md:gap-2 group"
-						aria-label="View all nearby clubs"
+						:aria-label="$t('search.near_clubs.view_all')"
 					>
-						<span class="hidden sm:inline text-sm md:text-base font-medium"
-							>View all</span
-						>
+						<span class="hidden sm:inline text-sm md:text-base font-medium">
+							{{ $t('search.near_clubs.view_all') }}
+						</span>
 						<UIcon
 							name="dashicons:arrow-right-alt2"
 							class="text-xl sm:text-2xl md:text-3xl group-hover:translate-x-1 transition-transform"
@@ -247,9 +225,7 @@ const handleBooking = (clubId: number) => {
 				</div>
 
 				<!-- Clubs Grid -->
-				<div
-					class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
-				>
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
 					<ClubCard
 						v-for="club in clubs"
 						:key="club.id"
@@ -260,10 +236,8 @@ const handleBooking = (clubId: number) => {
 
 				<!-- View More Button - Mobile Only -->
 				<div class="sm:hidden mt-6 text-center">
-					<button
-						class="w-full sm:w-auto bg-main hover:bg-main/90 text-white font-medium px-8 py-3 rounded-xl transition-colors text-base"
-					>
-						View All Nearby Clubs
+					<button class="w-full sm:w-auto bg-main hover:bg-main/90 text-white font-medium px-8 py-3 rounded-xl transition-colors text-base">
+						{{ $t('search.near_clubs.view_all') }}
 					</button>
 				</div>
 			</div>
@@ -277,5 +251,4 @@ const handleBooking = (clubId: number) => {
 </template>
 
 <style scoped>
-/* Optional: Add custom styles if needed */
 </style>

@@ -1,24 +1,24 @@
 <!-- components/Navbar.vue -->
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue"
+//===============================-< imports >-===============================
+//> variables
+const { locale, locales, setLocale } = useI18n()
+const localePath = useLocalePath()
 
-const currentLanguage = ref("EN")
 const languageOpen = ref(false)
 const mobileMenuOpen = ref(false)
-const languages = ["EN", "UZ", "RU"]
 
 const toggleLanguage = () => {
 	languageOpen.value = !languageOpen.value
 }
 
-const selectLanguage = (lang: string) => {
-	currentLanguage.value = lang
+const selectLanguage = (lang: any) => {
+	setLocale(lang)
 	languageOpen.value = false
 }
 
 const toggleMobileMenu = () => {
 	mobileMenuOpen.value = !mobileMenuOpen.value
-	// Prevent body scroll when mobile menu is open
 	if (mobileMenuOpen.value) {
 		document.body.style.overflow = "hidden"
 	} else {
@@ -26,7 +26,6 @@ const toggleMobileMenu = () => {
 	}
 }
 
-// Close mobile menu when clicking outside
 const closeMobileMenu = () => {
 	if (mobileMenuOpen.value) {
 		mobileMenuOpen.value = false
@@ -50,7 +49,6 @@ function handleScroll() {
 }
 
 function handleResize() {
-	// Close mobile menu on resize to desktop
 	if (window.innerWidth >= 768 && mobileMenuOpen.value) {
 		closeMobileMenu()
 	}
@@ -80,7 +78,7 @@ onUnmounted(() => {
 				:class="[isFixedNav ? 'bg-main/90 shadow-lg' : 'bg-white/10']"
 			>
 				<!-- Logo -->
-				<NuxtLink to="/" class="flex items-center gap-2 z-50">
+				<NuxtLink :to="localePath('/')" class="flex items-center gap-2 z-50">
 					<img
 						src="~/assets/images/logo/logo.svg"
 						alt="Playstat"
@@ -91,22 +89,22 @@ onUnmounted(() => {
 				<!-- Desktop Menu -->
 				<div class="hidden lg:flex items-center gap-6 xl:gap-8">
 					<NuxtLink
-						to="/"
+						:to="localePath('/')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
-						For players
+						{{ $t('nav.for_players') }}
 					</NuxtLink>
 					<NuxtLink
-						to="/clubs"
+						:to="localePath('/clubs')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
-						For clubs
+						{{ $t('nav.for_clubs') }}
 					</NuxtLink>
 					<NuxtLink
-						to="/manager"
+						:to="localePath('/manager')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
-						FAQ / Testimonial
+						{{ $t('nav.faq') }}
 					</NuxtLink>
 
 					<!-- Language Selector -->
@@ -115,8 +113,8 @@ onUnmounted(() => {
 							@click="toggleLanguage"
 							class="flex items-center gap-1 text-white hover:text-sc transition-colors group"
 						>
-							<span class="w-5 text-sm xl:text-base font-medium">{{
-								currentLanguage
+							<span class="w-5 text-sm xl:text-base font-medium uppercase">{{
+								locale
 							}}</span>
 							<UIcon
 								name="ic:round-keyboard-arrow-down"
@@ -139,13 +137,13 @@ onUnmounted(() => {
 								class="absolute right-0 mt-2 w-20 bg-white rounded-xl shadow-lg overflow-hidden"
 							>
 								<button
-									v-for="lang in languages"
-									:key="lang"
-									v-show="lang !== currentLanguage"
-									@click="selectLanguage(lang)"
-									class="block w-full text-left px-4 py-2 text-sm text-text hover:bg-sc hover:text-main transition-colors font-medium"
+									v-for="(lang, index) in locales"
+									:key="index"
+									v-show="lang.code !== locale"
+									@click="selectLanguage(lang.code)"
+									class="block w-full text-left px-4 py-2 text-sm text-text hover:bg-sc hover:text-main transition-colors font-medium uppercase"
 								>
-									{{ lang }}
+									{{ lang.code }}
 								</button>
 							</div>
 						</Transition>
@@ -155,7 +153,7 @@ onUnmounted(() => {
 					<button
 						class="bg-sc text-main font-semibold px-5 xl:px-6 py-2 rounded-full hover:bg-white transition-all duration-300 text-sm xl:text-base hover:shadow-lg active:scale-95"
 					>
-						Booking
+						{{ $t('nav.booking') }}
 					</button>
 				</div>
 
@@ -243,25 +241,25 @@ onUnmounted(() => {
 					<div class="flex-1 flex flex-col justify-between p-6">
 						<div class="space-y-1">
 							<NuxtLink
-								to="/"
+								:to="localePath('/')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
-								For Players
+								{{ $t('nav.for_players') }}
 							</NuxtLink>
 							<NuxtLink
-								to="/clubs"
+								:to="localePath('/clubs')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
-								For Clubs
+								{{ $t('nav.for_clubs') }}
 							</NuxtLink>
 							<NuxtLink
-								to="/faqs"
+								:to="localePath('/faqs')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
-								FAQ / Testimonial
+								{{ $t('nav.faq') }}
 							</NuxtLink>
 
 							<!-- Mobile Language Selector -->
@@ -269,21 +267,21 @@ onUnmounted(() => {
 								<p
 									class="text-white/60 text-xs uppercase tracking-wide px-4 mb-2"
 								>
-									Language
+									{{ $t('nav.language') }}
 								</p>
 								<div class="grid grid-cols-3 gap-2">
 									<button
-										v-for="lang in languages"
-										:key="lang"
-										@click="selectLanguage(lang)"
+										v-for="lang in locales"
+										:key="lang.code"
+										@click="selectLanguage(lang.code)"
 										class="px-4 py-2 rounded-lg text-sm font-medium transition-all"
 										:class="
-											currentLanguage === lang
+											locale === lang.code
 												? 'bg-sc text-main'
-												: 'bg-white/5 text-white hover:bg-white/10'
+												: 'bg-white/5 text-white hover:bg-white/10 uppercase'
 										"
 									>
-										{{ lang }}
+										{{ lang.code }}
 									</button>
 								</div>
 							</div>
@@ -295,11 +293,11 @@ onUnmounted(() => {
 								@click="closeMobileMenu"
 								class="w-full bg-sc text-main font-semibold px-6 py-3 rounded-xl hover:bg-white transition-all duration-300 text-base shadow-lg hover:shadow-xl active:scale-95"
 							>
-								Booking
+								{{ $t('nav.booking') }}
 							</button>
 
 							<p class="text-white/40 text-xs text-center">
-								© 2025 Playstat. All rights reserved.
+								{{ $t('nav.copyright') }}
 							</p>
 						</div>
 					</div>
@@ -310,7 +308,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-/* Custom scrollbar for mobile menu */
 .overflow-y-auto::-webkit-scrollbar {
 	width: 4px;
 }

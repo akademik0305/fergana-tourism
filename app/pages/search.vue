@@ -2,6 +2,7 @@
 //===============================-< imports >-===============================
 //> variables
 const route = useRoute()
+const { t } = useI18n()
 //> functions
 
 // clubs
@@ -68,8 +69,7 @@ const searchValue = ref("")
 onMounted(() => {
 	searchValue.value = route.query.search?.toString() || ""
 
-  console.log(route.params);
-  
+	console.log(route.params)
 })
 </script>
 
@@ -80,30 +80,24 @@ onMounted(() => {
 			id="header"
 			class="bg-main relative overflow-hidden pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 sm:pb-20 md:pb-28 lg:pb-40"
 		>
-			<div
-				class="absolute top-0 left-0 w-full h-full opacity-30 lg:opacity-100"
-			>
+			<div class="absolute top-0 left-0 w-full h-full opacity-30 lg:opacity-100">
 				<LazyIconsSearchHeaderLine />
 			</div>
 			<div class="container relative px-4 sm:px-6">
 				<!-- Content -->
-				<div
-					class="text-white pt-12 sm:pt-16 md:pt-20 lg:pt-23 text-center max-w-5xl mx-auto"
-				>
+				<div class="text-white pt-12 sm:pt-16 md:pt-20 lg:pt-23 text-center max-w-5xl mx-auto">
 					<h1
 						class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[54px] font-bold leading-tight capitalize px-4"
 					>
-						Find a <span class="text-sc">padel club</span> and<br
-							class="hidden sm:block"
-						/>
-						start playing
+						{{ $t('search_result.hero.title_start') }} <span class="text-sc">{{ $t('search_result.hero.title_highlight') }}</span> {{ $t('search_result.hero.title_end') }}<br class="hidden sm:block" />
+						{{ $t('search_result.hero.title_line2') }}
 					</h1>
 
 					<p
 						class="mt-6 sm:mt-8 md:mt-10 text-base sm:text-lg md:text-xl lg:text-2xl leading-tight text-white/90 px-4"
 					>
-						Find Matches And Courts Worldwide,<br class="hidden sm:block" />
-						Connect Anytime, Anywhere
+						{{ $t('search_result.hero.subtitle') }}<br class="hidden sm:block" />
+						{{ $t('search_result.hero.subtitle2') }}
 					</p>
 
 					<!-- Search Bar -->
@@ -117,9 +111,9 @@ onMounted(() => {
 						<input
 							id="search"
 							type="text"
-							placeholder="Address, Club, Place"
+							:placeholder="$t('search_result.hero.search_placeholder')"
 							class="flex-1 outline-none text-gray bg-transparent text-sm sm:text-base md:text-lg py-1 md:py-1.5 pr-2"
-              v-model="searchValue"
+							v-model="searchValue"
 						/>
 					</div>
 				</div>
@@ -127,22 +121,18 @@ onMounted(() => {
 		</section>
 		<!-- Hero -->
 
-		<!-- seach result -->
+		<!-- Search result -->
 		<section class="bg-white py-10 sm:py-12 md:py-16 lg:py-20 xl:py-24">
 			<div class="container px-4 sm:px-6">
 				<!-- Section Header -->
 				<div class="flex items-center justify-between mb-5 sm:mb-6 md:mb-8">
-					<h2
-						class="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-title"
-					>
-						Search result
+					<h2 class="text-xl sm:text-2xl md:text-3xl lg:text-[40px] font-semibold text-title">
+						{{ $t('search_result.results.title') }}
 					</h2>
 				</div>
 
 				<!-- Clubs Grid -->
-				<div
-					class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
-				>
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
 					<ClubCard
 						v-for="club in clubs"
 						:key="club.id"
@@ -156,15 +146,14 @@ onMounted(() => {
 					<button
 						class="w-full sm:w-auto bg-main hover:bg-main/90 text-white font-medium px-8 py-3 rounded-xl transition-colors text-base"
 					>
-						View All Clubs
+						{{ $t('search_result.results.view_all') }}
 					</button>
 				</div>
 			</div>
 		</section>
-		<!-- seach result -->
+		<!-- Search result -->
 	</div>
 </template>
 
 <style scoped>
-/* Optional: Add custom styles if needed */
 </style>

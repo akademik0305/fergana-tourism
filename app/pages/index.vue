@@ -2,6 +2,8 @@
 //===============================-< imports >-===============================
 //> variables
 const router = useRouter()
+const { t } = useI18n()
+const localePath = useLocalePath()
 //> functions
 
 // clubs
@@ -57,8 +59,6 @@ const handleBooking = (clubId: number) => {
 	console.log("Booking club:", clubId)
 }
 //===============================-< go to search page >-===============================
-//> variables
-//> functions
 function gotoSearch(event: KeyboardEvent) {
 	const input = event.target as HTMLInputElement
 	router.push({
@@ -82,34 +82,34 @@ function gotoSearch(event: KeyboardEvent) {
 					<!-- Left Content -->
 					<div class="text-white space-y-4 md:space-y-6">
 						<h1 class="text-3xl md:text-4xl lg:text-[54px] font-bold leading-tight">
-							Discover <span class="text-lime-400">Courts</span><br />
-							& <span class="text-lime-400">Players</span> Around You
+							{{ $t('home.hero.title_start') }} <span class="text-lime-400">{{ $t('home.hero.title_courts') }}</span><br />
+							& <span class="text-lime-400">{{ $t('home.hero.title_players') }}</span> {{ $t('home.hero.title_end') }}
 						</h1>
 
 						<p class="text-lg md:text-xl lg:text-2xl leading-tight text-white">
-							Find Matches And Courts Worldwide,<br class="hidden sm:block" />
-							Connect Anytime, Anywhere
+							{{ $t('home.hero.subtitle') }}<br class="hidden sm:block" />
+							{{ $t('home.hero.subtitle2') }}
 						</p>
 
 						<!-- Search Bar -->
-						<div
-							class="bg-white rounded-full p-2 flex items-center gap-3 shadow-lg max-w-full md:max-w-160">
+						<div class="bg-white rounded-full p-2 flex items-center gap-3 shadow-lg max-w-full md:max-w-160">
 							<UIcon name="ic:round-search" class="text-gray text-xl md:text-2xl ml-2" />
-							<input id="search" type="text" placeholder="Address, Club, Place"
+							<input
+								id="search"
+								type="text"
+								:placeholder="$t('home.hero.search_placeholder')"
 								class="flex-1 outline-none text-gray bg-transparent text-sm sm:text-base md:text-lg py-1 md:py-1.5 pr-2"
-								@keydown.enter="gotoSearch($event)" />
+								@keydown.enter="gotoSearch($event)"
+							/>
 						</div>
 
 						<!-- App Store Buttons -->
 						<div class="flex gap-3 md:gap-6 mt-6 md:mt-10">
 							<a href="#" class="inline-block">
-								<img src="~/assets/images/png/play.png" alt="Get it on Google Play"
-									class="h-10 md:h-12 rounded-lg" />
+								<img src="~/assets/images/png/play.png" :alt="$t('home.hero.google_play')" class="h-10 md:h-12 rounded-lg" />
 							</a>
-
 							<a href="#" class="inline-block">
-								<img src="~/assets/images/png/app.png" alt="Get it on App Store"
-									class="h-10 md:h-12 rounded-lg" />
+								<img src="~/assets/images/png/app.png" :alt="$t('home.hero.app_store')" class="h-10 md:h-12 rounded-lg" />
 							</a>
 						</div>
 					</div>
@@ -131,11 +131,11 @@ function gotoSearch(event: KeyboardEvent) {
 				<!-- Section Header -->
 				<div class="text-center mb-10 md:mb-16">
 					<h2 class="text-2xl md:text-4xl lg:text-5xl text-title mb-3 md:mb-4 font-semibold">
-						You need to start playing
+						{{ $t('home.features.title') }}
 					</h2>
 					<p class="text-text text-base md:text-lg lg:text-xl px-4">
-						Everything you need to find courts, book games,<br class="hidden sm:block" />
-						and start playing — all in one place.
+						{{ $t('home.features.subtitle') }}<br class="hidden sm:block" />
+						{{ $t('home.features.subtitle2') }}
 					</p>
 				</div>
 
@@ -144,64 +144,51 @@ function gotoSearch(event: KeyboardEvent) {
 					<!-- Feature 1: Easy to Search -->
 					<div class="flex flex-col items-center text-center">
 						<div class="relative mb-6 md:mb-8">
-							<div
-								class="bg-blue-600 rounded-3xl md:rounded-4xl overflow-hidden flex items-center justify-center relative z-10 p-5 md:p-7">
+							<div class="bg-blue-600 rounded-3xl md:rounded-4xl overflow-hidden flex items-center justify-center relative z-10 p-5 md:p-7">
 								<img src="~/assets/images/svg/search.svg" alt="search" class="w-12 md:w-auto" />
 							</div>
-
 							<div class="hidden md:block absolute top-1/2 -translate-y-1/2 left-full w-78 pl-2">
-								<img src="~/assets/images/svg/line.svg" class="w-full h-auto object-contain"
-									alt="line" />
+								<img src="~/assets/images/svg/line.svg" class="w-full h-auto object-contain" alt="line" />
 							</div>
 						</div>
-
 						<h3 class="text-xl md:text-2xl lg:text-3xl text-title mb-2 md:mb-3 uppercase font-semibold">
-							EASY TO SEARCH
+							{{ $t('home.features.search_title') }}
 						</h3>
 						<p class="text-text text-sm md:text-base leading-relaxed px-2">
-							Easily find courts and players around you in just seconds and
-							start playing right away.
+							{{ $t('home.features.search_text') }}
 						</p>
 					</div>
 
 					<!-- Feature 2: Booking -->
 					<div class="flex flex-col items-center text-center">
 						<div class="relative mb-6 md:mb-8">
-							<div
-								class="bg-blue-600 rounded-3xl md:rounded-4xl overflow-hidden flex items-center justify-center relative z-10 p-5 md:p-7">
+							<div class="bg-blue-600 rounded-3xl md:rounded-4xl overflow-hidden flex items-center justify-center relative z-10 p-5 md:p-7">
 								<img src="~/assets/images/svg/booking.svg" alt="booking" class="w-12 md:w-auto" />
 							</div>
-
 							<div class="hidden md:block absolute top-1/2 -translate-y-1/2 left-full w-78 pl-2">
-								<img src="~/assets/images/svg/line.svg" class="w-full h-auto object-contain"
-									alt="line" />
+								<img src="~/assets/images/svg/line.svg" class="w-full h-auto object-contain" alt="line" />
 							</div>
 						</div>
-
 						<h3 class="text-xl md:text-2xl lg:text-3xl text-title mb-2 md:mb-3 uppercase font-semibold">
-							BOOKING
+							{{ $t('home.features.booking_title') }}
 						</h3>
 						<p class="text-text text-sm md:text-base leading-relaxed px-2">
-							Book your court in seconds with a simple and smooth flow made for
-							hassle-free playing.
+							{{ $t('home.features.booking_text') }}
 						</p>
 					</div>
 
 					<!-- Feature 3: Fast Payments -->
 					<div class="flex flex-col items-center text-center sm:col-span-2 md:col-span-1">
 						<div class="relative mb-6 md:mb-8">
-							<div
-								class="bg-blue-600 rounded-3xl md:rounded-4xl overflow-hidden flex items-center justify-center relative z-10 p-5 md:p-7">
+							<div class="bg-blue-600 rounded-3xl md:rounded-4xl overflow-hidden flex items-center justify-center relative z-10 p-5 md:p-7">
 								<img src="~/assets/images/svg/payment.svg" alt="payment" class="w-12 md:w-auto" />
 							</div>
 						</div>
-
 						<h3 class="text-xl md:text-2xl lg:text-3xl text-title mb-2 md:mb-3 uppercase font-semibold">
-							FAST PAYMENTS
+							{{ $t('home.features.payment_title') }}
 						</h3>
 						<p class="text-text text-sm md:text-base leading-relaxed px-2">
-							Pay quickly and securely with trusted payment methods designed for
-							smooth checkout.
+							{{ $t('home.features.payment_text') }}
 						</p>
 					</div>
 				</div>
@@ -214,38 +201,33 @@ function gotoSearch(event: KeyboardEvent) {
 			<div class="container px-4">
 				<div class="flex flex-col lg:flex-row gap-5 items-stretch">
 					<!-- Left Content -->
-					<div
-						class="flex flex-col justify-between bg-yellow rounded-2xl p-6 md:p-8 lg:p-11 order-2 lg:order-1">
+					<div class="flex flex-col justify-between bg-yellow rounded-2xl p-6 md:p-8 lg:p-11 order-2 lg:order-1">
 						<!-- Title Section -->
 						<div>
 							<h2 class="text-2xl md:text-3xl lg:text-[40px] font-medium text-title mb-3 md:mb-4">
-								What is the Playstat?
+								{{ $t('home.about.title') }}
 							</h2>
 							<p class="text-black font-light text-base md:text-lg lg:text-[20px]">
-								Playstat is Uzbekistan's leading platform for racket sport
-								players and clubs.
+								{{ $t('home.about.subtitle') }}
 							</p>
 						</div>
 
 						<!-- We help you Section -->
 						<div class="mt-8 lg:mt-0">
 							<h3 class="text-xl md:text-2xl lg:text-3xl font-medium text-black">
-								We help you
+								{{ $t('home.about.we_help') }}
 							</h3>
-
 							<div class="mt-6 md:mt-10">
 								<!-- Feature 1 -->
 								<div class="flex gap-3 items-start border-t border-border py-5 md:py-8">
 									<div class="shrink-0">
-										<div
-											class="w-7 h-7 md:w-8 md:h-8 bg-main rounded-full flex items-center justify-center p-1.5 md:p-2">
+										<div class="w-7 h-7 md:w-8 md:h-8 bg-main rounded-full flex items-center justify-center p-1.5 md:p-2">
 											<lazy-icons-search color="#B6FF03" />
 										</div>
 									</div>
 									<div>
 										<p class="text-subtext leading-relaxed text-sm md:text-base">
-											Find courts, book games, connect with other players, and
-											focus on what truly matters — enjoy
+											{{ $t('home.about.feature1') }}
 										</p>
 									</div>
 								</div>
@@ -253,15 +235,13 @@ function gotoSearch(event: KeyboardEvent) {
 								<!-- Feature 2 -->
 								<div class="flex gap-3 md:gap-4 items-start border-t border-border py-5 md:py-8">
 									<div class="shrink-0">
-										<div
-											class="w-7 h-7 md:w-8 md:h-8 bg-main rounded-full flex items-center justify-center p-1.5 md:p-2">
+										<div class="w-7 h-7 md:w-8 md:h-8 bg-main rounded-full flex items-center justify-center p-1.5 md:p-2">
 											<lazy-icons-google-play color="#B6FF03" />
 										</div>
 									</div>
 									<div>
 										<p class="text-subtext leading-relaxed text-sm md:text-base">
-											More than just an app, it's a growing community built
-											around the love of sport.
+											{{ $t('home.about.feature2') }}
 										</p>
 									</div>
 								</div>
@@ -287,7 +267,7 @@ function gotoSearch(event: KeyboardEvent) {
 				<!-- Section Header -->
 				<div class="flex items-center justify-between mb-6">
 					<h2 class="text-2xl md:text-3xl lg:text-[40px] font-semibold text-title">
-						Top searched clubs
+						{{ $t('home.top_clubs.title') }}
 					</h2>
 					<button class="text-main hover:text-blue-700 transition-colors flex items-center gap-2">
 						<UIcon name="dashicons:arrow-right-alt2" class="text-2xl md:text-3xl" />
@@ -321,11 +301,10 @@ function gotoSearch(event: KeyboardEvent) {
 						<!-- Title Section -->
 						<div class="max-w-full lg:max-w-100">
 							<h2 class="text-2xl md:text-3xl lg:text-[40px] font-medium text-white mb-3 md:mb-4">
-								Playstat for players
+								{{ $t('home.players.title') }}
 							</h2>
 							<p class="text-white font-light text-base md:text-lg lg:text-[20px] leading-[120%]">
-								Playstat is Uzbekistan's leading platform for racket sport
-								players and clubs.
+								{{ $t('home.players.subtitle') }}
 							</p>
 						</div>
 
@@ -335,15 +314,13 @@ function gotoSearch(event: KeyboardEvent) {
 								<!-- Feature 1 -->
 								<div class="flex gap-3 items-start border-t border-border py-5 md:py-8">
 									<div class="shrink-0">
-										<div
-											class="w-7 h-7 md:w-8 md:h-8 bg-sc rounded-full flex items-center justify-center p-1.5 md:p-2">
+										<div class="w-7 h-7 md:w-8 md:h-8 bg-sc rounded-full flex items-center justify-center p-1.5 md:p-2">
 											<lazy-icons-search />
 										</div>
 									</div>
 									<div>
 										<p class="text-white leading-relaxed text-sm md:text-base">
-											Find courts, book games, connect with other players, and
-											focus on what truly matters — enjoy
+											{{ $t('home.players.feature1') }}
 										</p>
 									</div>
 								</div>
@@ -351,15 +328,13 @@ function gotoSearch(event: KeyboardEvent) {
 								<!-- Feature 2 -->
 								<div class="flex gap-3 md:gap-4 items-start border-t border-border py-5 md:py-8">
 									<div class="shrink-0">
-										<div
-											class="w-7 h-7 md:w-8 md:h-8 bg-sc rounded-full flex items-center justify-center p-1.5 md:p-2">
+										<div class="w-7 h-7 md:w-8 md:h-8 bg-sc rounded-full flex items-center justify-center p-1.5 md:p-2">
 											<lazy-icons-google-play />
 										</div>
 									</div>
 									<div>
 										<p class="text-white leading-relaxed text-sm md:text-base">
-											More than just an app, it's a growing community built
-											around the love of sport.
+											{{ $t('home.players.feature2') }}
 										</p>
 									</div>
 								</div>
@@ -367,17 +342,13 @@ function gotoSearch(event: KeyboardEvent) {
 								<!-- Feature 3 -->
 								<div class="flex gap-3 md:gap-4 items-start border-t border-border py-5 md:py-8">
 									<div class="shrink-0">
-										<div
-											class="w-7 h-7 md:w-8 md:h-8 bg-sc rounded-full flex items-center justify-center p-1.5 md:p-2">
+										<div class="w-7 h-7 md:w-8 md:h-8 bg-sc rounded-full flex items-center justify-center p-1.5 md:p-2">
 											<lazy-icons-user />
 										</div>
 									</div>
 									<div>
 										<p class="text-white leading-relaxed text-sm md:text-base">
-											With friends or new people, play whenever you like and
-											become part of Playstat, the world's largest and
-											ever-growing community of passionate racket sports
-											players.
+											{{ $t('home.players.feature3') }}
 										</p>
 									</div>
 								</div>
@@ -398,21 +369,19 @@ function gotoSearch(event: KeyboardEvent) {
 						<!-- Title -->
 						<div>
 							<h2 class="text-2xl md:text-4xl lg:text-6xl font-medium text-title">
-								Connect with our app
+								{{ $t('home.connect.title') }}
 							</h2>
 
 							<!-- Features List -->
 							<div class="space-y-2 md:space-y-3 mt-6 md:mt-8">
 								<p class="text-lg md:text-xl lg:text-2xl text-black">
-									Connect easily with players nearby
+									{{ $t('home.connect.feature1') }}
 								</p>
-
 								<p class="text-lg md:text-xl lg:text-2xl text-black">
-									Book courts and find matches instantly
+									{{ $t('home.connect.feature2') }}
 								</p>
-
 								<p class="text-lg md:text-xl lg:text-2xl text-black">
-									Track your progress and view match stats
+									{{ $t('home.connect.feature3') }}
 								</p>
 							</div>
 						</div>
@@ -420,19 +389,16 @@ function gotoSearch(event: KeyboardEvent) {
 						<!-- Download Button -->
 						<button
 							class="bg-main hover:bg-blue-700 text-white font-medium px-6 md:px-8 py-2.5 md:py-3 rounded-xl transition-colors text-base md:text-lg shadow-lg hover:shadow-xl w-max mt-6 lg:mt-0">
-							DOWNLOAD THE APP
+							{{ $t('home.connect.download_btn') }}
 						</button>
 					</div>
 
 					<!-- Right Image with Phone Mockups -->
 					<div class="relative order-1 lg:order-2">
-						<!-- Main Image -->
 						<div class="relative rounded-3xl overflow-hidden shadow-2xl">
 							<img src="~/assets/images/png/connect.png" alt="Tennis players"
 								class="w-full h-64 md:h-96 lg:h-auto object-cover" />
 						</div>
-
-						<!-- Decorative elements - Hidden on mobile -->
 						<div class="hidden xl:flex absolute bottom-10 -left-48 flex-col items-end">
 							<div class="shadow-2xl rounded-2xl overflow-hidden">
 								<img src="~/assets/images/png/connect-search.png" alt="search image" />
@@ -465,29 +431,27 @@ function gotoSearch(event: KeyboardEvent) {
 						<!-- Title -->
 						<div>
 							<h2 class="text-2xl md:text-4xl lg:text-6xl font-medium text-title">
-								Playstat for clubs
+								{{ $t('home.clubs.title') }}
 							</h2>
 
 							<!-- Features List -->
 							<div class="space-y-2 md:space-y-3 mt-6 md:mt-8">
 								<p class="text-lg md:text-xl lg:text-2xl text-black">
-									Connect easily with players nearby
+									{{ $t('home.clubs.feature1') }}
 								</p>
-
 								<p class="text-lg md:text-xl lg:text-2xl text-black">
-									Book courts and find matches instantly
+									{{ $t('home.clubs.feature2') }}
 								</p>
-
 								<p class="text-lg md:text-xl lg:text-2xl text-black">
-									Track your progress and view match stats
+									{{ $t('home.clubs.feature3') }}
 								</p>
 							</div>
 						</div>
 
-						<!-- Download Button -->
+						<!-- Button -->
 						<button
 							class="bg-main hover:bg-blue-700 text-white font-medium px-6 md:px-8 py-2.5 md:py-3 rounded-xl transition-colors text-base md:text-lg shadow-lg hover:shadow-xl w-max mt-6 lg:mt-0">
-							Discover Playstat manager
+							{{ $t('home.clubs.btn') }}
 						</button>
 					</div>
 				</div>
@@ -501,7 +465,7 @@ function gotoSearch(event: KeyboardEvent) {
 				<!-- Section Header -->
 				<div class="flex items-center justify-between mb-8 md:mb-12">
 					<h2 class="text-2xl md:text-3xl lg:text-[40px] font-medium text-title">
-						Inspiring testimonies
+						{{ $t('home.testimonials.title') }}
 					</h2>
 					<button class="text-main hover:text-blue-700 transition-colors flex items-center gap-2">
 						<UIcon name="dashicons:arrow-right-alt2" class="text-2xl md:text-3xl" />
@@ -510,20 +474,18 @@ function gotoSearch(event: KeyboardEvent) {
 
 				<!-- Testimonials Grid -->
 				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-					<!-- Testimonial Card -->
 					<div v-for="item in 3" :key="item"
 						class="bg-btn rounded-tr-[60px] md:rounded-tr-[90px] rounded-bl-[60px] md:rounded-bl-[90px] rounded-tl-xl rounded-br-xl py-10 md:py-16 px-6 md:px-8 text-white space-y-4 md:space-y-6 hover:bg-blue-700 transition-colors">
 						<!-- Stars -->
 						<div class="flex gap-1">
 							<UIcon name="basil:star-solid" v-for="star in 5" :key="star"
-								class="w-5 h-5 md:w-6 md:h-6 fill-current text-xl md:text-2xl" :class="star <= Math.floor(3) ? 'text-yellow-400' : 'text-gray-300'
-									" />
+								class="w-5 h-5 md:w-6 md:h-6 fill-current text-xl md:text-2xl"
+								:class="star <= Math.floor(3) ? 'text-yellow-400' : 'text-gray-300'" />
 						</div>
 
 						<!-- Testimonial Text -->
 						<p class="text-sm md:text-base leading-relaxed">
-							"With Playstat I have a great selection of courts and it's super
-							easy to book, it takes three steps and I can do it anytime"
+							{{ $t('home.testimonials.text') }}
 						</p>
 
 						<!-- User Info -->
@@ -534,7 +496,7 @@ function gotoSearch(event: KeyboardEvent) {
 							</div>
 							<div>
 								<p class="font-semibold text-sm md:text-base">Maxin Will</p>
-								<p class="text-xs md:text-sm text-blue-200">Product Manager</p>
+								<p class="text-xs md:text-sm text-blue-200">{{ $t('home.testimonials.role') }}</p>
 							</div>
 						</div>
 					</div>
