@@ -539,7 +539,7 @@ const handleSubmit = () => {
 										>
 											<div
 												v-show="showCountrySelect"
-												class="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-200 z-10 overflow-hidden min-w-[200px]"
+												class="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg border border-gray-200 z-10 overflow-hidden min-w-50"
 											>
 												<button
 													v-for="country in countries"
@@ -573,7 +573,7 @@ const handleSubmit = () => {
 										name="phone"
 										id="phone"
 										required
-										class="flex-1 rounded-xl md:rounded-2xl border-2 border-main px-4 md:px-6 py-2.5 md:py-3 lg:py-3.5 text-base md:text-lg text-title focus:outline-none focus:border-main focus:ring-2 focus:ring-main/20 transition-all"
+										class="flex-1 rounded-xl md:rounded-2xl border-2 border-main px-4 md:px-6 py-2.5 md:py-3 lg:py-3.5 text-base md:text-lg text-title focus:outline-none focus:border-main focus:ring-2 focus:ring-main/20 transition-all w-full"
 										:placeholder="$t('manager.form.phone_placeholder')"
 									/>
 								</div>
