@@ -2,7 +2,7 @@
 //===============================-< imports >-===============================
 //> variables
 const router = useRouter()
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const localePath = useLocalePath()
 //> functions
 
@@ -61,8 +61,10 @@ const handleBooking = (clubId: number) => {
 //===============================-< go to search page >-===============================
 function gotoSearch(event: KeyboardEvent) {
 	const input = event.target as HTMLInputElement
+	console.log(router.getRoutes());
+	
 	router.push({
-		name: "search",
+		name: `search___${locale.value}`,
 		query: {
 			search: input.value,
 		},
@@ -368,7 +370,7 @@ function gotoSearch(event: KeyboardEvent) {
 					<div class="flex flex-col justify-between py-6 md:py-8 lg:py-11 order-2 lg:order-1">
 						<!-- Title -->
 						<div>
-							<h2 class="text-2xl md:text-4xl lg:text-6xl font-medium text-title">
+							<h2 class="text-2xl md:text-4xl lg:text-5xl font-medium text-title leading-normal">
 								{{ $t('home.connect.title') }}
 							</h2>
 
@@ -430,7 +432,7 @@ function gotoSearch(event: KeyboardEvent) {
 						class="flex-1 w-full flex flex-col justify-between bg-card-bg px-6 md:px-10 lg:px-16 py-6 md:py-8 lg:py-11 rounded-3xl order-1 lg:order-2">
 						<!-- Title -->
 						<div>
-							<h2 class="text-2xl md:text-4xl lg:text-6xl font-medium text-title">
+							<h2 class="text-2xl md:text-4xl lg:text-5xl font-medium text-title leading-normal">
 								{{ $t('home.clubs.title') }}
 							</h2>
 

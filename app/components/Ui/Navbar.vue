@@ -89,13 +89,13 @@ onUnmounted(() => {
 				<!-- Desktop Menu -->
 				<div class="hidden lg:flex items-center gap-6 xl:gap-8">
 					<NuxtLink
-						:to="localePath('/')"
+						:to="localePath('/clubs')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
 						{{ $t("nav.for_players") }}
 					</NuxtLink>
 					<NuxtLink
-						:to="localePath('/clubs')"
+						:to="localePath('/manager')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
 						{{ $t("nav.for_clubs") }}
@@ -241,21 +241,21 @@ onUnmounted(() => {
 					<div class="flex-1 flex flex-col justify-between p-6">
 						<div class="space-y-1">
 							<NuxtLink
-								:to="localePath('/')"
+								:to="localePath('/clubs')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
 								{{ $t("nav.for_players") }}
 							</NuxtLink>
 							<NuxtLink
-								:to="localePath('/clubs')"
+								:to="localePath('/manager')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
 								{{ $t("nav.for_clubs") }}
 							</NuxtLink>
 							<NuxtLink
-								:to="localePath('/faqs')"
+								:to="localePath('/manager')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>
