@@ -4,6 +4,26 @@
 const router = useRouter()
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
+
+//===============================-< SEO >-===============================
+useHead({
+	title: t('home.seo.title'),
+	htmlAttrs: {
+		lang: locale.value,
+	},
+})
+
+useSeoMeta({
+	title: t('home.seo.title'),
+	ogTitle: t('home.seo.og_title'),
+	description: t('home.seo.description'),
+	ogDescription: t('home.seo.og_description'),
+	ogImage: '/og-image.jpg',
+	ogType: 'website',
+	twitterCard: 'summary_large_image',
+	twitterTitle: t('home.seo.twitter_title'),
+	twitterDescription: t('home.seo.twitter_description'),
+})
 //> functions
 
 // clubs
@@ -71,6 +91,7 @@ function gotoSearch(event: KeyboardEvent) {
 	})
 }
 </script>
+
 
 <template>
 	<div class="min-h-screen">

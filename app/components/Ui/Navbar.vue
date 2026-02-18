@@ -101,7 +101,7 @@ onUnmounted(() => {
 						{{ $t("nav.for_clubs") }}
 					</NuxtLink>
 					<NuxtLink
-						:to="localePath('/manager')"
+						:to="localePath('/faqs')"
 						class="text-white hover:text-sc transition-colors text-sm xl:text-base font-medium"
 					>
 						{{ $t("nav.faq") }}
@@ -255,7 +255,7 @@ onUnmounted(() => {
 								{{ $t("nav.for_clubs") }}
 							</NuxtLink>
 							<NuxtLink
-								:to="localePath('/manager')"
+								:to="localePath('/faqs')"
 								@click="closeMobileMenu"
 								class="block text-white hover:text-sc hover:bg-white/5 transition-all px-4 py-3 rounded-xl font-medium text-lg"
 							>

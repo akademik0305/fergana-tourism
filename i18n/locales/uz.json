@@ -217,5 +217,34 @@
       "title": "Qidiruv natijalari",
       "view_all": "Barcha klublarni ko'rish"
     }
+  },
+  "faqs": {
+    "seo": {
+      "title": "Ko'p so'raladigan savollar | Playstat",
+      "description": "Playstat haqida umumiy savollarga javoblar toping. Kortlarni bron qilish, o'yinchilar bilan bog'lanish va platformadan to'liq foydalanishni o'rganing.",
+      "og_title": "Playstat FAQ - Savollaringizga javoblar",
+      "og_description": "Bron qilish, to'lovlar, klublar va boshqalar haqida tez javoblar.",
+      "twitter_title": "Playstat FAQ",
+      "twitter_description": "Playstat'dan foydalanish haqida bilishingiz kerak bo'lgan hamma narsa."
+    },
+    "hero": {
+      "title": "Ko'p so'raladigan savollar",
+      "subtitle": "Kortlarni bron qilish va o'yinchilar bilan bog'lanish bo'yicha umumiy savollarga javoblar toping."
+    },
+    "contact": {
+      "title": "Yana savollaringiz bormi?",
+      "subtitle": "Qidirayotgan javobingizni topa olmadingizmi? Bizga xabar yuboring, tez orada javob beramiz.",
+      "name": "Ism",
+      "name_placeholder": "Ismingizni kiriting",
+      "email": "Elektron pochta",
+      "email_placeholder": "Elektron pochta",
+      "message": "Xabar",
+      "message_placeholder": "Sizga qanday yordam bera olishimizni ayting...",
+      "submit": "Xabar yuborish",
+      "email_us": "Email yuboring",
+      "call_us": "Qo'ng'iroq qiling",
+      "visit_us": "Tashrif buyuring",
+      "address": "Toshkent, O'zbekiston"
+    }
   }
 }

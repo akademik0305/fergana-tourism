@@ -217,5 +217,34 @@
       "title": "Search result",
       "view_all": "View All Clubs"
     }
+  },
+  "faqs": {
+    "seo": {
+      "title": "FAQs - Frequently Asked Questions | Playstat",
+      "description": "Find answers to common questions about Playstat. Learn how to book courts, connect with players, and get the most out of our platform.",
+      "og_title": "Playstat FAQs - Your Questions Answered",
+      "og_description": "Get quick answers about booking, payments, clubs, and more.",
+      "twitter_title": "Playstat FAQs",
+      "twitter_description": "Everything you need to know about using Playstat."
+    },
+    "hero": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about using Playstat for booking courts and connecting with players."
+    },
+    "contact": {
+      "title": "Still have questions?",
+      "subtitle": "Can't find the answer you're looking for? Send us a message and we'll get back to you soon.",
+      "name": "Name",
+      "name_placeholder": "Enter your name",
+      "email": "Email",
+      "email_placeholder": "Email",
+      "message": "Message",
+      "message_placeholder": "Tell us how we can help you...",
+      "submit": "Send Message",
+      "email_us": "Email Us",
+      "call_us": "Call Us",
+      "visit_us": "Visit Us",
+      "address": "Tashkent, Uzbekistan"
+    }
   }
 }

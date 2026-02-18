@@ -1,4 +1,37 @@
 <!-- components/ClubCard.vue -->
+<script setup lang="ts">
+interface Club {
+	id: number
+	name: string
+	image: string
+	distance: number
+	city: string
+	price: number
+	rating: number
+	reviews: number
+	availableTimes: string[]
+}
+
+interface Props {
+	club: Club
+}
+
+const props = defineProps<Props>()
+
+const emit = defineEmits<{
+	book: [clubId: number]
+}>()
+
+const handleBooking = () => {
+	emit("book", props.club.id)
+}
+
+// Format price with thousand separators
+const formatPrice = (price: number) => {
+	return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+}
+</script>
+
 <template>
 	<div
 		class="bg-card-bg rounded-xl md:rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow"
@@ -33,7 +66,7 @@
 					<span
 						class="font-medium text-xs md:text-[13px] text-gray whitespace-nowrap"
 					>
-						{{ formatPrice(club.price) }} {{ $t('club_card.sum') }}
+						{{ formatPrice(club.price) }} {{ $t("club_card.sum") }}
 					</span>
 				</div>
 			</div>
@@ -42,7 +75,7 @@
 			<div class="pb-4 md:pb-6 mt-2 md:mt-2 space-y-2">
 				<!-- Location -->
 				<p class="font-medium text-xs md:text-[13px] text-gray">
-					{{ club.distance }} {{ $t('club_card.km') }} – {{ club.city }}
+					{{ club.distance }} {{ $t("club_card.km") }} – {{ club.city }}
 				</p>
 
 				<!-- Rating -->
@@ -61,7 +94,7 @@
 						/>
 					</div>
 					<span class="ml-0.5 font-medium text-xs md:text-[13px] text-gray">
-						{{ club.rating }} ({{ club.reviews }} {{ $t('club_card.reviews') }})
+						{{ club.rating }} ({{ club.reviews }} {{ $t("club_card.reviews") }})
 					</span>
 				</div>
 			</div>
@@ -69,7 +102,7 @@
 			<!-- Time Availability -->
 			<div class="border-t border-border pt-4 md:pt-6">
 				<p class="text-xs md:text-sm font-medium text-black mb-2 md:mb-3">
-					{{ $t('club_card.time_availability') }}
+					{{ $t("club_card.time_availability") }}
 				</p>
 				<div class="flex flex-wrap gap-1.5 md:gap-2">
 					<button
@@ -87,41 +120,8 @@
 				@click="handleBooking"
 				class="mt-6 md:mt-9 w-full bg-btn hover:bg-main text-white font-medium text-sm md:text-base lg:text-lg py-2 md:py-2.5 rounded-lg md:rounded-xl transition-all duration-200 hover:shadow-lg active:scale-95"
 			>
-				{{ $t('club_card.book_now') }}
+				{{ $t("club_card.book_now") }}
 			</button>
 		</div>
 	</div>
 </template>
-
-<script setup lang="ts">
-interface Club {
-	id: number
-	name: string
-	image: string
-	distance: number
-	city: string
-	price: number
-	rating: number
-	reviews: number
-	availableTimes: string[]
-}
-
-interface Props {
-	club: Club
-}
-
-const props = defineProps<Props>()
-
-const emit = defineEmits<{
-	book: [clubId: number]
-}>()
-
-const handleBooking = () => {
-	emit("book", props.club.id)
-}
-
-// Format price with thousand separators
-const formatPrice = (price: number) => {
-	return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-}
-</script>
