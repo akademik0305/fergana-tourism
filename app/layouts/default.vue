@@ -6,6 +6,7 @@
 			<NuxtPage />
 		</div>
 		<UiFooter />
+		<UiAIAssistant />
 	</div>
 </template>
 <style></style>

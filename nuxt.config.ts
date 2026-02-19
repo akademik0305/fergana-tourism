@@ -18,6 +18,9 @@ export default defineNuxtConfig({
 			{ code: "ru", name: "Russian", file: "ru.json" },
 		],
 	},
+	runtimeConfig: {
+    geminiApiKey: process.env.NUXT_GEMINI_API_KEY, // Faqat serverda ishlaydi
+  },
 
 	css: ["./app/assets/css/main.css"],
 })
