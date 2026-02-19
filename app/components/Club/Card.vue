@@ -1,19 +1,10 @@
 <!-- components/ClubCard.vue -->
 <script setup lang="ts">
-interface Club {
-	id: number
-	name: string
-	image: string
-	distance: number
-	city: string
-	price: number
-	rating: number
-	reviews: number
-	availableTimes: string[]
-}
+//===============================-< imports >-===============================
+import type { IClub } from "~/types/api.types"
 
 interface Props {
-	club: Club
+	club: IClub
 }
 
 const props = defineProps<Props>()
@@ -39,7 +30,7 @@ const formatPrice = (price: number) => {
 		<!-- Club Image -->
 		<div class="relative h-48 sm:h-52 md:h-56 lg:h-60 overflow-hidden">
 			<img
-				:src="club.image"
+				:src="club.main_image"
 				:alt="club.name"
 				class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
 			/>
@@ -66,7 +57,7 @@ const formatPrice = (price: number) => {
 					<span
 						class="font-medium text-xs md:text-[13px] text-gray whitespace-nowrap"
 					>
-						{{ formatPrice(club.price) }} {{ $t("club_card.sum") }}
+						{{ formatPrice(Number(club.price)) }} {{ $t("club_card.sum") }}
 					</span>
 				</div>
 			</div>
@@ -75,38 +66,51 @@ const formatPrice = (price: number) => {
 			<div class="pb-4 md:pb-6 mt-2 md:mt-2 space-y-2">
 				<!-- Location -->
 				<p class="font-medium text-xs md:text-[13px] text-gray">
-					{{ club.distance }} {{ $t("club_card.km") }} – {{ club.city }}
+					{{ club.distance }} {{ $t("club_card.km") }} – {{ club.address }}
 				</p>
 
 				<!-- Rating -->
 				<div class="flex items-center flex-wrap gap-1">
-					<div class="flex items-center">
-						<UIcon
-							name="basil:star-solid"
-							v-for="star in 5"
-							:key="star"
-							class="w-3.5 h-3.5 md:w-4 md:h-4 fill-current"
-							:class="
-								star <= Math.floor(club.rating)
-									? 'text-yellow-400'
-									: 'text-gray-300'
-							"
-						/>
+					<div class="flex items-center relative">
+						<div class="flex">
+							<UIcon
+								v-for="star in 5"
+								:key="'bg-' + star"
+								name="basil:star-solid"
+								class="w-3.5 h-3.5 md:w-4 md:h-4 text-gray-300"
+							/>
+						</div>
+
+						<div
+							class="flex absolute top-0 left-0 overflow-hidden whitespace-nowrap"
+							:style="{ width: (Number(club.rating) / 5) * 100 + '%' }"
+						>
+							<UIcon
+								v-for="star in 5"
+								:key="'fg-' + star"
+								name="basil:star-solid"
+								class="w-3.5 h-3.5 md:w-4 md:h-4 text-yellow-400 shrink-0"
+							/>
+						</div>
 					</div>
 					<span class="ml-0.5 font-medium text-xs md:text-[13px] text-gray">
-						{{ club.rating }} ({{ club.reviews }} {{ $t("club_card.reviews") }})
+						{{ club.rating }}
+						<!--  ({{ club.reviews }} {{ $t("club_card.reviews") }}) -->
 					</span>
 				</div>
 			</div>
 
 			<!-- Time Availability -->
-			<div class="border-t border-border pt-4 md:pt-6">
+			<div
+				class="border-t border-border pt-4 md:pt-6"
+				v-if="club.aviable_times"
+			>
 				<p class="text-xs md:text-sm font-medium text-black mb-2 md:mb-3">
 					{{ $t("club_card.time_availability") }}
 				</p>
 				<div class="flex flex-wrap gap-1.5 md:gap-2">
 					<button
-						v-for="(time, index) in club.availableTimes.slice(0, 4)"
+						v-for="(time, index) in club.aviable_times.slice(0, 4)"
 						:key="index"
 						class="bg-white px-3 md:px-4 py-1 md:py-1.5 text-xs md:text-sm border border-neutral-light text-neutral rounded-full hover:border-main hover:text-main hover:bg-main/5 transition-all duration-200"
 					>
