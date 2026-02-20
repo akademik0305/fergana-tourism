@@ -1,17 +1,18 @@
 <script setup lang="ts">
-// ApexCharts Nuxt-da faqat Client-side'da ishlashi kerak
+const { t } = useI18n()
+
 const Chart = computed(() => {
 	return defineAsyncComponent(() => import("vue3-apexcharts"))
 })
 
 const data = [
-	{ name: "Mehmonxonalar", value: 45 },
-	{ name: "Kabel Yo'llari", value: 12 },
-	{ name: "Ekoturizm", value: 28 },
-	{ name: "Ko'ngilochar", value: 15 },
+	{ value: 45 },
+	{ value: 12 },
+	{ value: 28 },
+	{ value: 15 },
 ]
 
-const chartOptions = {
+const chartOptions = computed(() => ({
 	chart: {
 		type: "bar",
 		toolbar: { show: false },
@@ -19,7 +20,7 @@ const chartOptions = {
 	plotOptions: {
 		bar: {
 			borderRadius: 10,
-			distributed: true, // Har bir ustun har xil rangda bo'lishi uchun
+			distributed: true,
 			columnWidth: "60%",
 		},
 	},
@@ -27,7 +28,7 @@ const chartOptions = {
 	dataLabels: { enabled: false },
 	legend: { show: false },
 	xaxis: {
-		categories: data.map(i => i.name),
+		categories: [t('stats.categories[0]'), t('stats.categories[1]'), t('stats.categories[2]') ,t('stats.categories[3]')],
 		axisBorder: { show: false },
 		axisTicks: { show: false },
 		labels: {
@@ -47,74 +48,60 @@ const chartOptions = {
 			formatter: (val: number) => `${val}%`,
 		},
 	},
-}
+}))
 
-const chartSeries = [
+const chartSeries = computed(() => [
 	{
-		name: "Ulushi",
+		name: t('stats.series'),
 		data: data.map(i => i.value),
 	},
-]
+])
 </script>
 
 <template>
-	<section id="stats" class="py-32 bg-white">
+	<section id="stats" class="py-16 sm:py-32 bg-white">
 		<div class="container mx-auto px-6">
-			<div class="flex flex-col lg:flex-row gap-16 items-center">
-				<div class="lg:w-1/2">
-					<h2 class="text-emerald-600 font-bold uppercase tracking-widest mb-4">
-						Prognozlar
+			<div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+
+				<!-- Left -->
+				<div class="lg:w-1/2 w-full">
+					<h2 class="text-emerald-600 font-bold uppercase tracking-widest mb-4 text-sm sm:text-base">
+						{{ $t('stats.label') }}
 					</h2>
-					<h3
-						class="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight"
-					>
-						Kutilayotgan Investitsiya
-						<span class="text-emerald-500 underline decoration-slate-200"
-							>Strukturasi</span
-						>
+					<h3 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-6 sm:mb-8 leading-tight">
+						{{ $t('stats.title') }}
+						<span class="text-emerald-500 underline decoration-slate-200">
+							{{ $t('stats.titleHighlight') }}
+						</span>
 					</h3>
-					<p class="text-slate-600 text-lg leading-relaxed mb-8">
-						Farg'ona turistik zonasi 2025-2027 yillar davomida jami $150
-						milliondan ortiq to'g'ridan-to'g'ri investitsiyalarni jalb qilishni
-						rejalashtirmoqda. Eng katta ulush turar-joy va rekreatsion
-						maskanlariga to'g'ri keladi.
+					<p class="text-slate-600 text-base sm:text-lg leading-relaxed mb-8">
+						{{ $t('stats.description') }}
 					</p>
 
-					<div class="space-y-6">
+					<div class="space-y-5 sm:space-y-6">
 						<div class="flex items-center gap-4">
-							<div
-								class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold"
-							>
+							<div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold shrink-0">
 								01
 							</div>
 							<div>
-								<h4 class="font-bold text-slate-900">40+ Yirik Loyiha</h4>
-								<p class="text-sm text-slate-500">
-									Tayyor master-planlar asosida.
-								</p>
+								<h4 class="font-bold text-slate-900">{{ $t('stats.projects.label') }}</h4>
+								<p class="text-sm text-slate-500">{{ $t('stats.projects.desc') }}</p>
 							</div>
 						</div>
 						<div class="flex items-center gap-4">
-							<div
-								class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold"
-							>
+							<div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold shrink-0">
 								02
 							</div>
 							<div>
-								<h4 class="font-bold text-slate-900">
-									10,000+ Yangi Ish O'rni
-								</h4>
-								<p class="text-sm text-slate-500">
-									Mahalliy aholi va mutaxassislar uchun.
-								</p>
+								<h4 class="font-bold text-slate-900">{{ $t('stats.jobs.label') }}</h4>
+								<p class="text-sm text-slate-500">{{ $t('stats.jobs.desc') }}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div
-					class="lg:w-1/2 w-full h-112.5 bg-slate-50 p-8 rounded-[3rem] border border-slate-100 shadow-xl"
-				>
+				<!-- Right: Chart -->
+				<div class="lg:w-1/2 w-full bg-slate-50 p-6 sm:p-8 rounded-[2.5rem] sm:rounded-[3rem] border border-slate-100 shadow-xl">
 					<client-only>
 						<component
 							:is="Chart"
@@ -124,12 +111,11 @@ const chartSeries = [
 							:series="chartSeries"
 						/>
 					</client-only>
-					<div
-						class="mt-4 text-center text-xs text-slate-400 uppercase tracking-widest font-bold"
-					>
-						Loyiha Yo'nalishlari Bo'yicha Taqsimot (%)
+					<div class="mt-4 text-center text-xs text-slate-400 uppercase tracking-widest font-bold">
+						{{ $t('stats.chartFooter') }}
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</section>

@@ -1,56 +1,55 @@
-// constants/index.ts
 export const INCENTIVES = [
   {
-    title: 'Direksiya boshqaruvi',
-    description: 'Investorlar barcha masalalarni "Yagona darcha" orqali hal qiladi. Byurokratiya nolga tushiriladi.',
+    titleKey: 'incentives.direksiya.title',
+    descriptionKey: 'incentives.direksiya.description',
     icon: 'i-heroicons-globe-alt'
   },
   {
-    title: '30 Yillik Huquqiy Rejim',
-    description: 'Zonada alohida soliq va bojxona tartibi 30 yil muddatga amal qiladi. Master-reja asosida kafolatlanadi.',
+    titleKey: 'incentives.rejim.title',
+    descriptionKey: 'incentives.rejim.description',
     icon: 'i-heroicons-clock'
   },
   {
-    title: 'Infratuzilma Davlat Hisobidan',
-    description: 'Kommunikatsiyalar ob\'ektning chegarasigacha davlat byudjeti mablag\'lari hisobidan olib kelinadi.',
+    titleKey: 'incentives.infra.title',
+    descriptionKey: 'incentives.infra.description',
     icon: 'i-heroicons-bolt'
   }
-];
+]
 
 export const LOCATIONS = [
   {
     id: 'shohimardon',
-    name: 'Shohimardon',
-    description: 'Ziyorat turizmi va ekstremal dam olish zonalari klasteri.',
+    nameKey: 'locations.shohimardon.name',
+    descriptionKey: 'locations.shohimardon.description',
     sqm: 450,
     image: './shohimardon.jpg'
   },
   {
     id: 'yordon',
-    name: 'Yordon',
-    description: '"Yordon-Dugoba" dor yo\'li va xalqaro alpinizm markazi.',
+    nameKey: 'locations.yordon.name',
+    descriptionKey: 'locations.yordon.description',
     sqm: 350,
     image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&h=900&fit=crop'
   },
   {
     id: 'chimyon',
-    name: 'Chimyon',
-    description: 'Balneologik sog\'lomlashtirish sanatoriylari majmuasi.',
+    nameKey: 'locations.chimyon.name',
+    descriptionKey: 'locations.chimyon.description',
     sqm: 600,
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=900&fit=crop'
   },
   {
     id: 'vodil',
-    name: 'Vodil',
-    description: 'Agroturizm va zamonaviy hordiq maskanlari klasteri.',
+    nameKey: 'locations.vodil.name',
+    descriptionKey: 'locations.vodil.description',
     sqm: 546,
     image: './vodil.jpg'
   },
   {
     id: 'avval',
-    name: 'Avval',
-    description: 'Ko\'ngilochar bog\'lar va agroparklar majmuasi.',
+    nameKey: 'locations.avval.name',
+    descriptionKey: 'locations.avval.description',
     sqm: 450,
     image: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600&h=900&fit=crop'
   }
-];
+]

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
+
 <template>
 	<header
 		class="relative h-screen min-h-150 flex items-center justify-center overflow-hidden"
@@ -5,9 +9,9 @@
 		<!-- Background Image -->
 		<div class="absolute inset-0">
 			<img
-				src="~/assets/images/jpg/hero.jpg"
+				src="~/assets/images/jpg/hero-2.jpg"
 				alt="Farg'ona kurort zonasi"
-				class="w-full h-full object-cover object-center"
+				class="w-full h-full object-cover object-top"
 			/>
 			<!-- gradient overlay -->
 			<div
@@ -28,24 +32,27 @@
 				<div
 					class="badge-pulse inline-block bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-5 py-1.5 rounded-full text-tiny font-bold mb-8 uppercase tracking-[0.3em]"
 				>
-					Strategik Islohot · PQ-5
+					{{ $t("hero.badge") }}
 				</div>
 
 				<!-- Heading -->
 				<h1
-					class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 tracking-tighter leading-[0.92]"
+					class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 tracking-tighter leading-[1.2]"
 				>
-					Farg'ona Xalqaro
+					{{ $t("hero.title") }}
 					<br />
-					<span class="text-emerald-400 font-light italic">Kurort Zonasi</span>
+					<span
+						class="mt-4 text-emerald-400 font-light italic text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
+					>
+						{{ $t("hero.subtitle") }}
+					</span>
 				</h1>
 
 				<!-- Subtitle -->
 				<p
 					class="text-white/60 text-sm sm:text-base md:text-lg max-w-xl mb-8 sm:mb-12 leading-relaxed"
 				>
-					O'zbekiston Respublikasi Prezidentining qarori asosida — turizm va
-					investitsiyalar uchun yangi imkoniyatlar markazi.
+					{{ $t("hero.description") }}
 				</p>
 
 				<!-- CTA Buttons -->
@@ -71,7 +78,7 @@
 								d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
 							/>
 						</svg>
-						Qarorni yuklab olish
+						{{ $t("hero.download") }}
 					</a>
 				</div>
 			</div>
@@ -81,7 +88,9 @@
 		<div
 			class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 z-10"
 		>
-			<span class="text-xs tracking-[0.2em] uppercase">Pastga</span>
+			<span class="text-xs tracking-[0.2em] uppercase">{{
+				$t("hero.scroll")
+			}}</span>
 			<div
 				class="w-px h-10 bg-linear-to-b from-white/40 to-transparent animate-pulse"
 			/>

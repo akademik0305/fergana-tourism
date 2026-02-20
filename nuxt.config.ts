@@ -16,10 +16,12 @@ export default defineNuxtConfig({
 			{ code: "en", name: "English", file: "en.json" },
 			{ code: "uz", name: "Uzbek", file: "uz.json" },
 			{ code: "ru", name: "Russian", file: "ru.json" },
+			{ code: "zh", name: "Chinese", file: "zh.json" },
+			{ code: "ko", name: "Korean", file: "ko.json" },
 		],
 	},
 	runtimeConfig: {
-    geminiApiKey: process.env.NUXT_GEMINI_API_KEY, // Faqat serverda ishlaydi
+    // geminiApiKey: process.env.NUXT_GEMINI_API_KEY, // Faqat serverda ishlaydi
   },
 
 	css: ["./app/assets/css/main.css"],

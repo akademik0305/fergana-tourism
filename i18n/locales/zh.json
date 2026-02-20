@@ -1,0 +1,156 @@
+{
+  "nav": {
+    "badge": "总统令",
+    "logo": "费尔干纳旅游",
+    "links": {
+      "benefits": "法令内容",
+      "locations": "5个地区",
+      "stats": "统计数据"
+    },
+    "cta": "立即投资",
+    "footer": "费尔干纳旅游",
+    "year": "© 2025"
+  },
+  "hero": {
+    "badge": "战略改革 · 总统令-5",
+    "title": "费尔干纳国际",
+    "subtitle": "度假区",
+    "description": "根据乌兹别克斯坦共和国总统令——旅游和投资的新机遇中心。",
+    "download": "下载法令",
+    "scroll": "向下"
+  },
+  "incentives": {
+    "direksiya": {
+      "title": "管理局治理",
+      "description": "投资者通过'单一窗口'解决所有问题。官僚主义降至零。"
+    },
+    "rejim": {
+      "title": "30年法律制度",
+      "description": "区内特殊税务和海关制度运行30年，以总体规划为保障。"
+    },
+    "infra": {
+      "title": "国家出资基础设施",
+      "description": "通信设施由国家预算出资，铺设至设施边界。"
+    }
+  },
+  "locations": {
+    "shohimardon": {
+      "name": "沙希马尔丹",
+      "description": "朝圣旅游和极限休闲区集群。"
+    },
+    "yordon": {
+      "name": "约尔丹",
+      "description": "'约尔丹-杜戈巴'飞索和国际登山中心。"
+    },
+    "chimyon": {
+      "name": "奇米翁",
+      "description": "水疗健康疗养院综合体。"
+    },
+    "vodil": {
+      "name": "沃迪尔",
+      "description": "农业旅游和现代休闲目的地集群。"
+    },
+    "avval": {
+      "name": "阿瓦尔",
+      "description": "娱乐公园和农业园综合体。"
+    },
+    "section": {
+      "title": "战略地区集群",
+      "description": "由总统令第5号确定的这5个地区将依据总体规划进行开发。",
+      "hectare": "公顷",
+      "select": "选择"
+    }
+  },
+  "benefits": {
+    "title": "法令的法律与经济基础",
+    "description": "总统令第5号不仅仅是一份文件，它是",
+    "highlight": "国家给予投资者的3项核心保障：",
+    "tax": {
+      "title": "投资者税收优惠",
+      "customs": {
+        "value": "0%",
+        "label": "海关税",
+        "desc": "适用于设备和零部件"
+      },
+      "profit": {
+        "value": "50%",
+        "label": "所得税",
+        "desc": "税率降低（在特定条件下）"
+      },
+      "land": {
+        "label": "10年期限",
+        "desc": "可分期支付土地价款"
+      }
+    }
+  },
+  "stats": {
+    "label": "预测",
+    "title": "预期投资",
+    "titleHighlight": "结构",
+    "description": "费尔干纳旅游区计划在2025-2027年吸引超过1.5亿美元的直接投资。最大份额将用于住宅和休闲设施。",
+    "projects": {
+      "label": "40+个大型项目",
+      "desc": "基于成熟的总体规划。"
+    },
+    "jobs": {
+      "label": "10,000+个新工作岗位",
+      "desc": "面向当地居民和专业人士。"
+    },
+    "chartFooter": "按项目方向分配（%）",
+    "series": "占比",
+    "categories": [
+      "酒店",
+      "缆车",
+      "生态旅游",
+      "娱乐"
+    ]
+  },
+  "apply": {
+    "success": {
+      "title": "您的申请已提交至管理局！",
+      "desc": "我们的专家将在总统令第5号框架内审查您的项目，并尽快与您联系。",
+      "again": "再次提交申请"
+    },
+    "title": "提交投资项目",
+    "desc": "根据总统令第5号，土地地块通过 电子拍卖 依据总体规划分配。提交申请后，管理局专家将协助您了解拍卖条款并准备项目文件。",
+    "phone": {
+      "label": "管理局热线"
+    },
+    "email": {
+      "label": "电子邮件"
+    },
+    "form": {
+      "name": {
+        "label": "机构或姓名",
+        "placeholder": "Silk Road Investors Ltd."
+      },
+      "phone": {
+        "label": "联系电话",
+        "placeholder": "+998 90 --- -- --"
+      },
+      "location": {
+        "label": "目标地区",
+        "suffix": "地区",
+        "all": "所有地区（综合集群）"
+      },
+      "description": {
+        "label": "项目描述",
+        "placeholder": "计划投资金额和项目类型..."
+      },
+      "submit": "向管理局提交申请",
+      "note": "您的申请将由管理局审查，并将推荐总体规划中的合适地块。"
+    }
+  },
+  "footer": {
+    "copy": "© 2026 「费尔干纳」管理局。总统令第5号执行。"
+  },
+  "chat": {
+    "welcome": "您好！我是费尔干纳投资顾问。您对总统令第5号或旅游区有什么问题吗？",
+    "error": "抱歉，发生了错误。请稍后再试。",
+    "title": "AI 顾问",
+    "online": "在线",
+    "thinking": "思考中...",
+    "placeholder": "请输入您的问题...",
+    "button": "AI 顾问"
+  }
+}
