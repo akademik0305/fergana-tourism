@@ -1,21 +1,110 @@
 <template>
-  <header class="hero-section h-screen flex items-center justify-center text-center px-4 relative overflow-hidden bg-slate-950">
-    <div class="max-w-5xl z-10">
-      <div class="badge-pulse inline-block bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-5 py-1.5 rounded-full text-[10px] font-bold mb-8 uppercase tracking-[0.3em]">
-        Strategik Islohot: PQ-5
-      </div>
-      <h1 class="text-5xl md:text-8xl font-bold text-white mb-8 tracking-tighter leading-[0.95]">
-        Farg'ona Xalqaro <br /> <span class="text-emerald-400 font-light italic">Kurort Zonasi</span>
-      </h1>
-      <div class="flex flex-wrap justify-center gap-6">
-        <NuxtLink to="#benefits" class="bg-emerald-600 text-white px-10 py-5 rounded-2xl font-bold text-lg flex items-center gap-2">
-          Qaror Mohiyati
-          <UIcon name="i-heroicons-chevron-right" class="w-5 h-5" />
-        </NuxtLink>
-        <a href="#" class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-2xl font-bold text-lg">
-          Master Rejani Yuklash
-        </a>
-      </div>
-    </div>
-  </header>
+	<header
+		class="relative h-screen min-h-150 flex items-center justify-center overflow-hidden"
+	>
+		<!-- Background Image -->
+		<div class="absolute inset-0">
+			<img
+				src="~/assets/images/jpg/hero.jpg"
+				alt="Farg'ona kurort zonasi"
+				class="w-full h-full object-cover object-center"
+			/>
+			<!-- gradient overlay -->
+			<div
+				class="absolute inset-0 bg-linear-to-t from-[rgba(2,44,34,0.85)] to-[rgba(2,44,34,0.6)"
+			/>
+			<!-- Subtle vignette -->
+			<div
+				class="absolute inset-0 bg-radial-[ellipse_at_center] from-transparent to-black/30"
+			/>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 w-full px-4 sm:px-6">
+			<div
+				class="container mx-auto max-w-5xl flex flex-col items-center text-center"
+			>
+				<!-- Badge -->
+				<div
+					class="badge-pulse inline-block bg-emerald-500/20 text-emerald-400 border border-emerald-500/50 px-5 py-1.5 rounded-full text-tiny font-bold mb-8 uppercase tracking-[0.3em]"
+				>
+					Strategik Islohot · PQ-5
+				</div>
+
+				<!-- Heading -->
+				<h1
+					class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 tracking-tighter leading-[0.92]"
+				>
+					Farg'ona Xalqaro
+					<br />
+					<span class="text-emerald-400 font-light italic">Kurort Zonasi</span>
+				</h1>
+
+				<!-- Subtitle -->
+				<p
+					class="text-white/60 text-sm sm:text-base md:text-lg max-w-xl mb-8 sm:mb-12 leading-relaxed"
+				>
+					O'zbekiston Respublikasi Prezidentining qarori asosida — turizm va
+					investitsiyalar uchun yangi imkoniyatlar markazi.
+				</p>
+
+				<!-- CTA Buttons -->
+				<div
+					class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto"
+				>
+					<a
+						href="./pq-5"
+						target="_blank"
+						download
+						class="group w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-2xl font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2"
+					>
+						<svg
+							class="w-4 h-4"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+							/>
+						</svg>
+						Qarorni yuklab olish
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom scroll indicator -->
+		<div
+			class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 z-10"
+		>
+			<span class="text-xs tracking-[0.2em] uppercase">Pastga</span>
+			<div
+				class="w-px h-10 bg-linear-to-b from-white/40 to-transparent animate-pulse"
+			/>
+		</div>
+	</header>
 </template>
+
+<style>
+.badge-pulse {
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+	}
+
+	70% {
+		box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+	}
+}
+</style>

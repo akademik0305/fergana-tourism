@@ -19,7 +19,7 @@ import { LOCATIONS } from '~/constants'
         <div 
           v-for="loc in LOCATIONS" 
           :key="loc.id" 
-          class="group relative overflow-hidden h-[550px] rounded-[2.5rem] shadow-xl hover:-translate-y-2 transition-all duration-500"
+          class="group relative overflow-hidden h-137.5 rounded-[2.5rem] shadow-xl hover:-translate-y-2 transition-all duration-500"
         >
           <img 
             :src="loc.image" 
@@ -27,7 +27,7 @@ import { LOCATIONS } from '~/constants'
             class="w-full h-full object-cover group-hover:scale-110 transition duration-1000" 
           />
 
-          <div class="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-900/40 to-transparent p-10 flex flex-col justify-end">
+          <div class="absolute inset-0 bg-linear-to-t from-emerald-950 via-emerald-900/40 to-transparent p-10 flex flex-col justify-end">
             <h3 class="text-white text-2xl font-bold mb-3 tracking-tight group-hover:text-emerald-400 transition-colors">
               <template v-if="loc.name === 'Yordon'">
                 <span class="underline italic decoration-emerald-500/50">Yordon</span>
@@ -42,7 +42,7 @@ import { LOCATIONS } from '~/constants'
             </p>
 
             <div class="mt-6 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">
+              <span class="text-tiny font-bold text-emerald-400 uppercase tracking-widest">
                 {{ loc.sqm }} Gektar
               </span>
               <button class="text-white font-bold text-xs uppercase tracking-tighter hover:underline">

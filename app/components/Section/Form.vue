@@ -76,17 +76,17 @@ const handleSubmit = () => {
             
             <form @submit.prevent="handleSubmit" class="space-y-6">
               <div class="space-y-2">
-                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">Tashkilot yoki F.I.SH</label>
+                <label class="text-tiny font-bold text-slate-400 uppercase tracking-widest px-1">Tashkilot yoki F.I.SH</label>
                 <input v-model="formData.name" required type="text" placeholder="Silk Road Investors Ltd." class="w-full p-5 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-emerald-500 outline-none text-slate-900 font-medium" />
               </div>
               
               <div class="space-y-2">
-                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">Aloqa uchun raqam</label>
+                <label class="text-tiny font-bold text-slate-400 uppercase tracking-widest px-1">Aloqa uchun raqam</label>
                 <input v-model="formData.phone" required type="tel" placeholder="+998 90 --- -- --" class="w-full p-5 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-emerald-500 outline-none text-slate-900 font-medium" />
               </div>
               
               <div class="space-y-2">
-                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">Maqsadli Hudud</label>
+                <label class="text-tiny font-bold text-slate-400 uppercase tracking-widest px-1">Maqsadli Hudud</label>
                 <select v-model="formData.location" class="w-full p-5 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-emerald-500 outline-none text-slate-900 font-bold">
                   <option v-for="l in LOCATIONS" :key="l.id" :value="l.name">{{ l.name }} Hududi</option>
                   <option value="Barcha hududlar (Umumiy klaster)">Barcha hududlar (Umumiy klaster)</option>
@@ -94,7 +94,7 @@ const handleSubmit = () => {
               </div>
               
               <div class="space-y-2">
-                <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">Loyiha Tavsifi</label>
+                <label class="text-tiny font-bold text-slate-400 uppercase tracking-widest px-1">Loyiha Tavsifi</label>
                 <textarea v-model="formData.description" required placeholder="Mo'ljallangan investitsiya miqdori va loyiha turi..." rows="4" class="w-full p-5 rounded-2xl bg-slate-50 border-none focus:ring-2 focus:ring-emerald-500 outline-none text-slate-900 font-medium resize-none"></textarea>
               </div>
               
@@ -103,7 +103,7 @@ const handleSubmit = () => {
                 Arizani Direksiyaga Yuborish
               </button>
               
-              <p class="text-center text-[10px] text-slate-400 italic">
+              <p class="text-center text-tiny text-slate-400 italic">
                 Arizangiz Direksiya tomonidan ko'rib chiqilib, Master-rejadagi mos lotlar taklif qilinadi.
               </p>
             </form>

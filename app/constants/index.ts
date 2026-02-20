@@ -23,7 +23,7 @@ export const LOCATIONS = [
     name: 'Shohimardon',
     description: 'Ziyorat turizmi va ekstremal dam olish zonalari klasteri.',
     sqm: 450,
-    image: 'https://images.unsplash.com/photo-1544085311-11a028465b0c?w=600&h=900&fit=crop'
+    image: './shohimardon.jpg'
   },
   {
     id: 'yordon',
@@ -44,7 +44,7 @@ export const LOCATIONS = [
     name: 'Vodil',
     description: 'Agroturizm va zamonaviy hordiq maskanlari klasteri.',
     sqm: 546,
-    image: 'https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=600&h=900&fit=crop'
+    image: './vodil.jpg'
   },
   {
     id: 'avval',
